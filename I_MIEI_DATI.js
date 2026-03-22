@@ -16,7 +16,8 @@ var I_MIEI_DATI = {
     // ----- CARTELLA FOTO -----
     // Metti le tue foto in questa cartella con i nomi: Foto1.jpg, Foto2.jpg, Foto3.jpg, Foto4.jpg, Foto5.jpg, Foto6.jpg
     // Per cambiare foto: sostituisci i file nella cartella (stesso nome) oppure cambia il nome della cartella qui sotto
-    cartellaFoto: "Imagine Cani",
+    // Cartella senza spazi: compatibile con GitHub Pages e URL su cellulare
+    cartellaFoto: "images/cani",
 
     // ----- DESCRIZIONI FOTO (riga1 = titolo, riga2 = descrizione) -----
     foto: [
