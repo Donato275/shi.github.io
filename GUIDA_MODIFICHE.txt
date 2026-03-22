@@ -1,0 +1,91 @@
+================================================================================
+  GUIDA ALLA MODIFICA DEL SITO - Il mio migliore fratello - Il Cane
+================================================================================
+
+Questo file ti spiega dove trovare e modificare ogni parte del sito.
+Apri il file index.html con un editor di testo o Cursor e cerca le sezioni indicate.
+
+--------------------------------------------------------------------------------
+1. IMMAGINI (Cartella: images/)
+--------------------------------------------------------------------------------
+   - Salva le tue 6 foto nella cartella "images" con i nomi:
+     foto1.jpg, foto2.jpg, foto3.jpg, foto4.jpg, foto5.jpg, foto6.jpg
+   - Formati supportati: .jpg, .jpeg, .png
+
+--------------------------------------------------------------------------------
+2. TITOLO E SOTTOTITOLO (Sezione Hero)
+--------------------------------------------------------------------------------
+   Cerca: <h1>Il mio migliore fratello</h1>
+   Cerca: <p class="subtitle">Il Cane</p>
+   
+   Modifica questi testi con il tuo titolo e sottotitolo.
+
+--------------------------------------------------------------------------------
+3. DESCRIZIONI DELLE 5 FOTO
+--------------------------------------------------------------------------------
+   Ogni foto ha due righe di testo. Cerca nel file:
+   
+   Foto 1: "Momenti di complicità" e la riga sotto
+   Foto 2: "Le passeggiate insieme" e la riga sotto
+   Foto 3: "Fedeltà senza confini" e la riga sotto
+   Foto 4: "Coccole e relax" e la riga sotto
+   Foto 5: "Il migliore compagno" e la riga sotto
+   Foto 6: "Amicizia sincera" e la riga sotto
+
+--------------------------------------------------------------------------------
+4. CHI SIAMO (Sezione #chi-siamo)
+--------------------------------------------------------------------------------
+   Cerca: <section id="chi-siamo"
+   Modifica i due paragrafi <p> con la tua presentazione.
+
+--------------------------------------------------------------------------------
+5. SERVIZI (Sezione #servizi)
+--------------------------------------------------------------------------------
+   Cerca: <section id="servizi"
+   - Modifica il paragrafo introduttivo
+   - I tre "service-card" contengono: Consigli e guide, La nostra storia, Community
+     Modifica titoli (h3) e descrizioni (p) di ciascuno
+
+--------------------------------------------------------------------------------
+6. CONTATTI (Sezione #contatti)
+--------------------------------------------------------------------------------
+   Cerca: <section id="contatti"
+   - Modifica il paragrafo introduttivo
+   - Modifica email e telefono nelle righe:
+     <p>📧 email@esempio.com</p>
+     <p>📱 +39 123 456 7890</p>
+
+--------------------------------------------------------------------------------
+7. FOOTER (Piè di pagina)
+--------------------------------------------------------------------------------
+   Cerca: <footer>
+   Modifica l'anno e il testo del copyright se necessario.
+
+--------------------------------------------------------------------------------
+8. TITOLO DELLA PAGINA (nella scheda del browser)
+--------------------------------------------------------------------------------
+   Cerca: <title>Il mio migliore fratello - Il Cane</title>
+   Modifica con il tuo titolo.
+
+--------------------------------------------------------------------------------
+STRUTTURA CARTELLE
+--------------------------------------------------------------------------------
+   .claude/
+   ├── index.html          ← File principale del sito (modifica qui i testi)
+   ├── GUIDA_MODIFICHE.txt ← Questa guida
+   └── images/             ← Cartella per le tue foto
+       ├── foto1.jpg
+       ├── foto2.jpg
+       ├── foto3.jpg
+       ├── foto4.jpg
+       ├── foto5.jpg
+       ├── foto6.jpg
+       └── LEGGIMI.txt
+
+--------------------------------------------------------------------------------
+COME VISUALIZZARE IL SITO
+--------------------------------------------------------------------------------
+   Doppio clic su index.html per aprirlo nel browser, oppure
+   trascinalo nella finestra del browser.
+
+================================================================================

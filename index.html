@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Il mio migliore fratello - Il Cane</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #0f1419;
+            --color-surface: #1a2332;
+            --color-accent: #e8b86d;
+            --color-text: #e8e6e3;
+            --color-text-muted: #9ca3af;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--color-bg);
+            color: var(--color-text);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        header {
+            padding: 1.5rem 2rem;
+            background: rgba(26, 35, 50, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(232, 184, 109, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--color-text);
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        nav a:hover {
+            background: var(--color-accent);
+            color: var(--color-bg);
+            border-color: var(--color-accent);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem 3rem;
+            position: relative;
+        }
+
+        .hero-title-wrapper {
+            position: relative;
+            display: inline-block;
+            padding: 0 2rem;
+        }
+
+        .hero-title-wrapper::before,
+        .hero-title-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--color-accent));
+        }
+
+        .hero-title-wrapper::before {
+            right: 100%;
+            background: linear-gradient(90deg, transparent, var(--color-accent));
+        }
+
+        .hero-title-wrapper::after {
+            left: 100%;
+            background: linear-gradient(270deg, transparent, var(--color-accent));
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.8rem, 7vw, 5rem);
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.3rem;
+            background: linear-gradient(135deg, #e8b86d 0%, #f4d9a0 50%, #d4a055 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 40px rgba(232, 184, 109, 0.3);
+        }
+
+        .hero .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+            font-style: italic;
+            color: var(--color-text-muted);
+            letter-spacing: 0.15em;
+            position: relative;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        .hero .subtitle::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-accent), transparent);
+            margin: 0.8rem auto 0;
+            border-radius: 2px;
+        }
+
+        .photos-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem 5rem;
+        }
+
+        .content-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem 5rem;
+        }
+
+        .photos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem;
+            justify-items: center;
+        }
+
+        .photo-card {
+            text-align: center;
+            max-width: 260px;
+        }
+
+        .photo-wrapper {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 1.2rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--color-accent);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .photo-wrapper:hover {
+            transform: scale(1.05);
+        }
+
+        .photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-card .description {
+            font-size: 0.95rem;
+            color: var(--color-text-muted);
+            line-height: 1.7;
+        }
+
+        .photo-card .description .line1 {
+            font-weight: 500;
+            color: var(--color-text);
+        }
+
+        .photo-card .description .line2 {
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
+        .content-section {
+            border-top: 1px solid rgba(232, 184, 109, 0.15);
+        }
+
+        .content-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            color: var(--color-accent);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .content-section p {
+            color: var(--color-text-muted);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: var(--color-surface);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(232, 184, 109, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--color-accent);
+        }
+
+        .service-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--color-accent);
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .service-card p {
+            text-align: left;
+            margin-bottom: 0;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 2rem auto 0;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            margin-bottom: 1rem;
+            background: var(--color-surface);
+            border: 1px solid rgba(232, 184, 109, 0.3);
+            border-radius: 8px;
+            color: var(--color-text);
+            font-family: inherit;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--color-accent);
+        }
+
+        .contact-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .btn-invia {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: var(--color-accent);
+            color: var(--color-bg);
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-invia:hover {
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--color-surface);
+            color: var(--color-accent);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(232, 184, 109, 0.3);
+        }
+
+        .social-links a:hover {
+            background: var(--color-accent);
+            color: var(--color-bg);
+            transform: scale(1.1);
+        }
+
+        .social-links a svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(232, 184, 109, 0.15);
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+
+            .hero-title-wrapper::before,
+            .hero-title-wrapper::after {
+                display: none;
+            }
+
+            .hero-title-wrapper {
+                padding: 0 0.5rem;
+            }
+
+            .photos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .photo-wrapper {
+                width: 160px;
+                height: 160px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#chi-siamo">Chi siamo</a>
+            <a href="#servizi">Servizi</a>
+            <a href="#contatti">Contatti</a>
+        </nav>
+    </header>
+
+    <main id="home">
+        <!-- ========== SEZIONE HOME ========== -->
+        <section class="hero">
+            <div class="hero-title-wrapper">
+                <h1 id="titolo-principale">Il mio migliore fratello</h1>
+            </div>
+            <p class="subtitle" id="sottotitolo">Il Cane</p>
+        </section>
+
+        <section class="photos-section">
+            <div class="photos-grid" id="foto-container">
+                <!-- Le foto vengono caricate da I_MIEI_DATI.js -->
+            </div>
+        </section>
+
+        <!-- ========== CHI SIAMO ========== -->
+        <section id="chi-siamo" class="content-section">
+            <h2>Chi siamo</h2>
+            <p id="chi-siamo-1"></p>
+            <p id="chi-siamo-2"></p>
+        </section>
+
+        <!-- ========== SERVIZI ========== -->
+        <section id="servizi" class="content-section">
+            <h2>Servizi</h2>
+            <p id="servizi-intro"></p>
+            <div class="services-grid" id="servizi-container">
+                <!-- Le schede vengono caricate da I_MIEI_DATI.js -->
+            </div>
+        </section>
+
+        <!-- ========== CONTATTI ========== -->
+        <section id="contatti" class="content-section">
+            <h2>Contatti</h2>
+            <p id="contatti-intro"></p>
+            <form class="contact-form" action="#" method="post" onsubmit="return false;">
+                <label for="nome">Nome e cognome</label>
+                <input type="text" id="nome" name="nome" placeholder="Il tuo nome" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="la-tua@email.com" required>
+
+                <label for="messaggio">Messaggio</label>
+                <textarea id="messaggio" name="messaggio" placeholder="Scrivi qui il tuo messaggio..." required></textarea>
+
+                <button type="submit" class="btn-invia">Invia messaggio</button>
+            </form>
+            <div class="contact-info">
+                <p id="contatti-email">📧 email@esempio.com</p>
+                <p id="contatti-telefono">📱 +39 123 456 7890</p>
+                <div class="social-links" id="social-container">
+                    <!-- I social vengono caricati da I_MIEI_DATI.js -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p id="footer-text">© 2025 Il mio migliore fratello - Il Cane. Tutti i diritti riservati.</p>
+    </footer>
+
+    <script src="I_MIEI_DATI.js"></script>
+    <script>
+        (function() {
+            var d = typeof I_MIEI_DATI !== 'undefined' ? I_MIEI_DATI : {
+                titoloPrincipale: "Il mio migliore fratello", sottotitolo: "Il Cane",
+                cartellaFoto: "Imagine Cani",
+                foto: [{riga1:"Momenti di complicità",riga2:"Ogni giorno insieme è una piccola avventura."},{riga1:"Le passeggiate",riga2:"Esplorare il mondo a quattro zampe."},{riga1:"Fedeltà",riga2:"Un amico che non chiede nulla."},{riga1:"Coccole",riga2:"Rilassarsi insieme."},{riga1:"Il compagno",riga2:"Famiglia."},{riga1:"Amicizia",riga2:"Un legame speciale."}],
+                chiSiamo: {paragrafo1:"Benvenuto! Questo sito è dedicato al nostro cane.", paragrafo2:"Condividiamo la nostra esperienza."},
+                servizi: {intro:"Consigli e risorse per gli amanti dei cani.", schede:[{titolo:"Guide",descrizione:"Consigli pratici."},{titolo:"Storia",descrizione:"Le nostre avventure."},{titolo:"Community",descrizione:"Condividi esperienze."}]},
+                contatti: {intro:"Scrivici!", email:"email@esempio.com", telefono:"+39 123 456 7890"},
+                social: {facebook:"",instagram:"",twitter:"",youtube:"",tiktok:"",linkedin:""},
+                footer: "© 2025 Il mio migliore fratello - Il Cane."
+            };
+
+            var imgFallback = 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&h=400&fit=crop';
+
+            document.title = d.titoloPrincipale + ' - ' + d.sottotitolo;
+            var h1 = document.getElementById('titolo-principale'); if (h1) h1.textContent = d.titoloPrincipale;
+            var sub = document.getElementById('sottotitolo'); if (sub) sub.textContent = d.sottotitolo;
+
+            var fotos = document.getElementById('foto-container');
+            if (fotos && d.foto) {
+                var nomi = ['Foto1.jpg','Foto2.jpg','Foto3.jpg','Foto4.jpg','Foto5.jpg','Foto6.jpg'];
+                fotos.innerHTML = d.foto.map(function(f, i) {
+                    var src = (d.cartellaFoto ? d.cartellaFoto + '/' : '') + (nomi[i] || 'Foto'+(i+1)+'.jpg');
+                    return '<article class="photo-card"><div class="photo-wrapper"><img src="'+src+'" alt="Foto '+(i+1)+'" onerror="this.src=\''+imgFallback+'\'"></div><div class="description"><p class="line1">'+f.riga1+'</p><p class="line2">'+f.riga2+'</p></div></article>';
+                }).join('');
+            }
+
+            var cs1 = document.getElementById('chi-siamo-1'); if (cs1) cs1.textContent = d.chiSiamo.paragrafo1;
+            var cs2 = document.getElementById('chi-siamo-2'); if (cs2) cs2.textContent = d.chiSiamo.paragrafo2;
+
+            var sintro = document.getElementById('servizi-intro'); if (sintro) sintro.textContent = d.servizi.intro;
+            var scont = document.getElementById('servizi-container');
+            if (scont && d.servizi.schede) {
+                scont.innerHTML = d.servizi.schede.map(function(s) {
+                    return '<div class="service-card"><h3>'+s.titolo+'</h3><p>'+s.descrizione+'</p></div>';
+                }).join('');
+            }
+
+            var cintro = document.getElementById('contatti-intro'); if (cintro) cintro.textContent = d.contatti.intro;
+            var cemail = document.getElementById('contatti-email'); if (cemail) cemail.innerHTML = '📧 <a href="mailto:'+d.contatti.email+'" style="color:inherit">'+d.contatti.email+'</a>';
+            var ctel = document.getElementById('contatti-telefono'); if (ctel) ctel.innerHTML = '📱 <a href="tel:'+d.contatti.telefono.replace(/\s/g,'')+'" style="color:inherit">'+d.contatti.telefono+'</a>';
+
+            var socials = [
+                { key: 'facebook', url: d.social.facebook, icon: 'M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z' },
+                { key: 'instagram', url: d.social.instagram, icon: 'M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z' },
+                { key: 'twitter', url: d.social.twitter, icon: 'M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z' },
+                { key: 'youtube', url: d.social.youtube, icon: 'M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z' },
+                { key: 'tiktok', url: d.social.tiktok, icon: 'M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z' },
+                { key: 'linkedin', url: d.social.linkedin, icon: 'M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z' }
+            ];
+            var scont = document.getElementById('social-container');
+            if (scont && d.social) {
+                var html = '';
+                socials.forEach(function(s) {
+                    if (d.social[s.key] && d.social[s.key].trim() !== '') {
+                        html += '<a href="'+d.social[s.key]+'" target="_blank" rel="noopener" title="'+s.key+'"><svg viewBox="0 0 24 24" fill="currentColor"><path d="'+s.icon+'"/></svg></a>';
+                    }
+                });
+                scont.innerHTML = html;
+            }
+
+            var ft = document.getElementById('footer-text'); if (ft) ft.textContent = d.footer;
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+================================================================================
+  COME MODIFICARE IL SITO - Guida rapida
+================================================================================
+
+TUTTO SI MODIFICA DA UN SOLO FILE:  I_MIEI_DATI.js
+
+Apri I_MIEI_DATI.js con un editor di testo (o Cursor) e modifica i valori.
+
+--------------------------------------------------------------------------------
+FOTO
+--------------------------------------------------------------------------------
+  • cartellaFoto: il nome della cartella dove metti le foto
+  • Le foto devono chiamarsi: Foto1.jpg, Foto2.jpg, Foto3.jpg, Foto4.jpg, Foto5.jpg, Foto6.jpg
+  • Per cambiare foto: sostituisci i file nella cartella (stesso nome) - fatto!
+  • Per usare un'altra cartella: cambia "cartellaFoto" in I_MIEI_DATI.js
+
+--------------------------------------------------------------------------------
+CONTATTI E SOCIAL
+--------------------------------------------------------------------------------
+  • email, telefono: nella sezione "contatti"
+  • social: Facebook, Instagram, Twitter, YouTube, TikTok, LinkedIn
+  • Lascia vuoto ("") i social che non usi - non verranno mostrati
+
+--------------------------------------------------------------------------------
+TESTI
+--------------------------------------------------------------------------------
+  • titoloPrincipale, sottotitolo: la pagina principale
+  • foto: titolo e descrizione sotto ogni cerchio
+  • chiSiamo: i due paragrafi "Chi siamo"
+  • servizi: introduzione e le 3 schede
+  • contatti: testo introduttivo
+  • footer: il testo in fondo alla pagina
+
+--------------------------------------------------------------------------------
+Dopo ogni modifica: salva I_MIEI_DATI.js e ricarica index.html nel browser
+
+================================================================================
